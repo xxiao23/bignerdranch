@@ -53,6 +53,7 @@
 		653254CF295FBF51001CD284 /* WorldTrotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTrotterUITests.swift; sourceTree = "<group>"; };
 		653254D1295FBF51001CD284 /* WorldTrotterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTrotterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		653254DE295FD0AE001CD284 /* ConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
+		6582D7002965467A00A55B4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +318,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				653254B5295FBF4F001CD284 /* Base */,
+				6582D7002965467A00A55B4A /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
