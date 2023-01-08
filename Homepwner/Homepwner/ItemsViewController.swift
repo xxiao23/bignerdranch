@@ -11,7 +11,13 @@ class ItemsViewController: UITableViewController {
   
   var itemStore: ItemStore!
   
-  @IBAction func addNewItem(_ sender: UIButton) {
+  required init?(coder: NSCoder) {
+    super.init(coder: coder)
+    
+    navigationItem.leftBarButtonItem = editButtonItem
+  }
+  
+  @IBAction func addNewItem(_ sender: UIBarButtonItem) {
     // Create a new item and add it to the item store
     let newItem = itemStore.createItem()
     
@@ -21,23 +27,6 @@ class ItemsViewController: UITableViewController {
       
       // Insert this new row into the table
       tableView.insertRows(at: [indexPath], with: .automatic)
-    }
-  }
-
-  @IBAction func toggleEditingMode(_ sender: UIButton) {
-    // If you are currently in editing mode...
-    if isEditing {
-      // Chnage text of button to inform user of state
-      sender.setTitle("Edit", for: .normal)
-      
-      // Turn off editing mode
-      setEditing(false, animated: true)
-    } else {
-      // Chnage text of button to inform user of state
-      sender.setTitle("Done", for: .normal)
-      
-      // Enter editing mode
-      setEditing(true, animated: true)
     }
   }
 
@@ -100,13 +89,6 @@ class ItemsViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Get the height of the status bar
-    let statusBarHeight = UIApplication.shared.statusBarFrame.height
-    
-    let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-    tableView.contentInset = insets
-    tableView.scrollIndicatorInsets = insets
-    
     tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = 65
   }
@@ -125,5 +107,11 @@ class ItemsViewController: UITableViewController {
     default:
       preconditionFailure("Unexpected segue identifier.")
     }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    tableView.reloadData()
   }
 }
